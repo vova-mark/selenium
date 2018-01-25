@@ -3,12 +3,10 @@ package com.google.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
 
-public class GmailLoginPage {
 
-    private WebDriver driver;
+public class GmailLoginPage extends AbstractPage {
 
     private WebElement loginTextBox;
     private By loginTextBoxLocator = By.cssSelector("input[name=identifier]");
@@ -24,12 +22,10 @@ public class GmailLoginPage {
 
 
     public GmailLoginPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
     public void Login(String login, String passsword) {
-
-        WebDriverWait wait = new WebDriverWait(driver, 10);
 
         loginTextBox = driver.findElement(loginTextBoxLocator);
         loginTextBox.sendKeys(login);
@@ -37,12 +33,10 @@ public class GmailLoginPage {
         nextButton = driver.findElement(nextButtonLocator);
         nextButton.click();
 
-        passwordTextBox = wait.until(ExpectedConditions.elementToBeClickable(passwordTextBoxLocator));
+        passwordTextBox = waitFor(elementToBeClickable(passwordTextBoxLocator));
         passwordTextBox.sendKeys(passsword);
 
-
-        submitButton = wait.until(ExpectedConditions.elementToBeClickable(submitButtonLocator));
-        //submitButton = driver.findElement(submitButtonLocator);
+        submitButton = waitFor(elementToBeClickable(submitButtonLocator));
         submitButton.click();
     }
 }
