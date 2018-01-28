@@ -33,10 +33,10 @@ public class GmailLoginPage extends AbstractPage {
         nextButton = driver.findElement(nextButtonLocator);
         nextButton.click();
 
-        passwordTextBox = waitFor(elementToBeClickable(passwordTextBoxLocator));
+        passwordTextBox = webDriverUtil.waitFor(elementToBeClickable(passwordTextBoxLocator));
         passwordTextBox.sendKeys(passsword);
 
-        submitButton = waitFor(elementToBeClickable(submitButtonLocator));
+        submitButton = webDriverUtil.waitFor(elementToBeClickable(submitButtonLocator));
         submitButton.click();
     }
 }

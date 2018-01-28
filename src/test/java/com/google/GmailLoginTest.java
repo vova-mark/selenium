@@ -20,7 +20,7 @@ public class GmailLoginTest {
     private WebElement submitButton;
 
     private By loginButtonLocator = By.xpath("/html/body/nav/div/a[2]");
-    private By loginTextBoxLocator = By.xpath("//*[@id=\"identifierId\"]");
+    private By loginTextBoxLocator = By.id("identifierId");
     private By nextButtonLocator = By.xpath("/html/body/div[1]/div[1]/div[2]/div[2]/form/div[2]/div/div[2]/div[1]/div/content/span");
     private By passwordTextBoxLocator = By.xpath("/html/body/div[1]/div[1]/div[2]/div[2]/form/div[2]/div/div[3]/div[1]/div[1]/div/div/div[1]/div/div[1]/input");
     private By submitButtonLocator = By.xpath("/html/body/div[1]/div[1]/div[2]/div[2]/form/div[2]/div/div[3]/div[2]/div[1]/div/div[2]");
@@ -36,7 +36,7 @@ public class GmailLoginTest {
     @Test
     public void LoginTest(){
 
-        driver.get("https://www.google.com/intl/uk/gmail/about/");
+        driver.get("https://www.gmail.com");
         loginButton = driver.findElement(loginButtonLocator);
         loginButton.click();
         loginTextBox = driver.findElement(loginTextBoxLocator);
