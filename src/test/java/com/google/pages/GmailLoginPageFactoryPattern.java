@@ -8,6 +8,9 @@ import org.openqa.selenium.support.How;
 
 public class GmailLoginPageFactoryPattern {
 
+    @FindBy(how = How.ID, using = "headingSubtext")
+    private WebElement headingText;
+
     @FindBy(how = How.CSS, using = "input[name=identifier]")
     private WebElement loginTextBox;
 
@@ -19,6 +22,10 @@ public class GmailLoginPageFactoryPattern {
 
     @FindBy(how = How.ID, using = "passwordNext")
     private WebElement submitButton;
+
+    public String getHedingText() {
+        return headingText.getText();
+    }
 
     public void Login(String login, String passsword) {
         loginTextBox.sendKeys(login);
