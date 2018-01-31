@@ -19,7 +19,7 @@ public class SearchGoogleTest extends WebDriverTestBase {
     private WebElement linkField;
     private List<WebElement> resultList;
     private WebElement searchButton;
-    private String searchData = "Selenium";
+    private String searchData = "selenium";
 
     @Test
     public void searchGoogleTest() {
@@ -32,9 +32,10 @@ public class SearchGoogleTest extends WebDriverTestBase {
         //linkField = driver.findElement(linkLocator);
         resultList = driver.findElements(linkLocator);
         for (WebElement element : resultList) {
-            Assert.assertTrue(element.getText().contains(searchData));
+            Assert.assertTrue(element.getText().toLowerCase().contains(searchData));
         }
         //Assert.assertTrue(linkField.getText().contains(searchData));
+        driver.quit();
     }
 
     @Test
@@ -46,6 +47,7 @@ public class SearchGoogleTest extends WebDriverTestBase {
         GoogleResultPage resultPage = new GoogleResultPage(driver);
         linkField = resultPage.findLink();
         Assert.assertTrue(linkField.getText().contains(searchData));
+        driver.close();
 
     }
 }

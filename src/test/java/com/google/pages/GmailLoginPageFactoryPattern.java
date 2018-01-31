@@ -21,7 +21,6 @@ public class GmailLoginPageFactoryPattern {
     private WebElement submitButton;
 
     public void Login(String login, String passsword) {
-
         loginTextBox.sendKeys(login);
         nextButton.click();
         passwordTextBox.sendKeys(passsword);

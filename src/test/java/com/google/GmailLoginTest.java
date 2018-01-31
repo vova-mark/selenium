@@ -35,7 +35,6 @@ public class GmailLoginTest {
 
     @Test
     public void LoginTest(){
-
         driver.get("https://www.gmail.com");
         loginButton = driver.findElement(loginButtonLocator);
         loginButton.click();

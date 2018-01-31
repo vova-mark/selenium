@@ -22,9 +22,10 @@ public class WebDriverTestBase {
         driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS); //timeout for page load
         driver.manage().timeouts().setScriptTimeout(20, TimeUnit.SECONDS); //timeout for load scripts
     }
+
     //@AfterClass
-    public void tearDown(){
-        driver.close(); //current tab
-        //driver.quit(); //close at all
+    public void tearDown() {
+        //driver.close(); //current tab
+        driver.quit(); //close at all
     }
 }

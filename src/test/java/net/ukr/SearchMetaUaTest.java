@@ -5,40 +5,47 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.concurrent.TimeUnit;
 
-public class SearchUkrNetTest {
+public class SearchMetaUaTest {
     private WebDriver driver;
-    private By searchStringLocator = By.xpath("//*[@id=\"uh-search-box\"]");
-    private By searchButtonLocator = By.xpath("//*[@id=\"yui_3_18_0_4_1516211864145_1227\"]");
-    private By resultLinkLocator = By.xpath("//*[@id=\"yui_3_10_0_1_1516211938897_211\"]");
+    private By searchStringLocator = By.id("search-input");
+    private By searchButtonLocator = By.cssSelector("input[value=Пошук]");
+    private By resultLinkLocator = By.xpath("//*[@id=\"rso\"]/div[2]/div/div/div/div/h3/a");
     private WebElement searchString;
     private WebElement searchButton;
     private WebElement resultLink;
-    private String searchData = "Teach";
+    private String searchData = "Selenium";
 
     @BeforeClass
     public void SetUp() {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+        WebDriverManager.firefoxdriver().setup();
+        driver = new FirefoxDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
     @Test
-    public void searchGoogleTest() {
-        driver.get("https://www.yahoo.com/");
+    public void searchMetaUaTestMethod() {
+        driver.get("https://www.ukr.net/");
         searchString = driver.findElement(searchStringLocator);
         searchString.sendKeys(searchData);
-        searchString.submit();
 
         searchButton = driver.findElement(searchButtonLocator);
         searchButton.click();
+
+        ArrayList<String> list = new ArrayList<>(driver.getWindowHandles());
+        driver.switchTo().window(list.get(1));
+
         resultLink = driver.findElement(resultLinkLocator);
         Assert.assertTrue(resultLink.getText().contains(searchData));
+        driver.quit();
     }
 }
