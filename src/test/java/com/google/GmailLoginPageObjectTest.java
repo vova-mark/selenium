@@ -1,10 +1,9 @@
 package com.google;
 
-import com.google.core.WebDriverTestBase;
-import com.google.pages.GmailLoginPage;
-import com.google.pages.GmailLoginPageFactoryPattern;
+import selenium.com.google.core.WebDriverTestBase;
+import selenium.com.google.pages.GmailLoginPage;
+import selenium.com.google.pages.GmailLoginPageFactoryPattern;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class GmailLoginPageObjectTest extends WebDriverTestBase {

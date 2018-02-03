@@ -1,4 +1,4 @@
-package ua.com.rozetka.pages;
+package selenium.ua.com.rozetka;
 
 
 import org.openqa.selenium.WebDriver;

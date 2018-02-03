@@ -1,8 +1,8 @@
 package com.google;
 
-import com.google.core.WebDriverTestBase;
-import com.google.pages.GoogleResultPage;
-import com.google.pages.GoogleSearchPage;
+import selenium.com.google.core.WebDriverTestBase;
+import selenium.com.google.pages.GoogleResultPage;
+import selenium.com.google.pages.GoogleSearchPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;

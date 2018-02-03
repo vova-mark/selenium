@@ -1,4 +1,4 @@
-package com.google.pages;
+package selenium.com.google.pages;
 
 import org.openqa.selenium.WebDriver;
 

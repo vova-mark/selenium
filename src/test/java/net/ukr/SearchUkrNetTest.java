@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.concurrent.TimeUnit;
 
-public class SearchMetaUaTest {
+public class SearchUkrNetTest {
     private WebDriver driver;
     private By searchStringLocator = By.id("search-input");
     private By searchButtonLocator = By.cssSelector("input[value=Пошук]");
@@ -33,7 +33,7 @@ public class SearchMetaUaTest {
     }
 
     @Test
-    public void searchMetaUaTestMethod() {
+    public void searchUkrNetTestMethod() {
         driver.get("https://www.ukr.net/");
         searchString = driver.findElement(searchStringLocator);
         searchString.sendKeys(searchData);

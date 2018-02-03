@@ -1,8 +1,9 @@
-package com.google.pages;
+package selenium.com.google.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
 import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
 
 

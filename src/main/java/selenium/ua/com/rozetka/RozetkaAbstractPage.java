@@ -1,6 +1,6 @@
-package ua.com.rozetka.pages;
+package selenium.ua.com.rozetka;
 
-import com.google.pages.WebDriverUtil;
+import selenium.com.google.pages.WebDriverUtil;
 import org.openqa.selenium.WebDriver;
 
 public class RozetkaAbstractPage  {
