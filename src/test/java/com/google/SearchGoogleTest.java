@@ -1,15 +1,18 @@
 package com.google;
 
-import selenium.com.google.core.WebDriverTestBase;
-import selenium.com.google.pages.GoogleResultPage;
-import selenium.com.google.pages.GoogleSearchPage;
+import org.testng.annotations.Listeners;
+import selenium.core.WebDriverTestBase;
+import selenium.pages.com.google.GoogleResultPage;
+import selenium.pages.com.google.GoogleSearchPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import selenium.core.TestListener;
 
 import java.util.List;
 
+@Listeners({TestListener.class})
 public class SearchGoogleTest extends WebDriverTestBase {
 
     private By searchFieldLocator = By.name("q");
@@ -20,6 +23,7 @@ public class SearchGoogleTest extends WebDriverTestBase {
     private List<WebElement> resultList;
     private WebElement searchButton;
     private String searchData = "selenium";
+
 
     @Test
     public void searchGoogleTest() {

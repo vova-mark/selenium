@@ -1,11 +1,11 @@
 package ua.com.rozetka;
 
-import selenium.com.google.core.WebDriverTestBase;
+import selenium.core.WebDriverTestBase;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import selenium.ua.com.rozetka.RozetkaMainPage;
-import selenium.ua.com.rozetka.RozetkaResultPage;
+import selenium.pages.ua.com.rozetka.RozetkaMainPage;
+import selenium.pages.ua.com.rozetka.RozetkaResultPage;
 
 public class RozetkaSearchTest extends WebDriverTestBase {
 

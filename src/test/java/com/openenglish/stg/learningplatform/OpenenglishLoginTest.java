@@ -1,9 +1,9 @@
 package com.openenglish.stg.learningplatform;
 
-import selenium.com.openenglish.stg.learningplatform.core.WebDriverTestBase;
-import selenium.com.openenglish.stg.learningplatform.pages.OpenenglishLoginPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import selenium.core.WebDriverTestBase;
+import selenium.pages.com.openenglish.stg.learningplatform.OpenenglishLoginPage;
 
 public class OpenenglishLoginTest extends WebDriverTestBase {
 
