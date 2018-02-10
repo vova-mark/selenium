@@ -1,4 +1,4 @@
-package ua.com.rozetka;
+package selenium;
 
 import selenium.core.WebDriverTestBase;
 import org.openqa.selenium.support.PageFactory;

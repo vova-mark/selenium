@@ -1,4 +1,4 @@
-package com.w3schools;
+package selenium.com.w3schools;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -46,8 +46,10 @@ public class w3schoolsTests extends WebDriverTestBase {
     @Test
     public void ActionsTest(){
         driver.get("https://gojs.net/latest/samples/htmlDragDrop.html?gclid=CLjWnLeG5tQCFUeVGwodCowEcA");
-        WebElement canvas = driver.findElement(By.xpath("//*[@id=\"myDiagramDiv\"]/canvas"));
-        WebElement water = driver.findElement(By.xpath("//*[@id=\"sample\"]/div[1]/span[1]/div/div[1]"));
+        WebElement canvas = driver.findElement(By.xpath("//div[@id='myDiagramDiv']/canvas"));
+        WebElement water = driver.findElement(By.xpath("//div[@id='sample']//div[.= 'Water']"));
+        WebElement coffee = driver.findElement(By.xpath("//div[@id='sample']//div[.= 'Coffee']"));
+        WebElement tea = driver.findElement(By.xpath("//div[@id='sample']//div[.= 'Tea']"));
         Actions builder = new Actions(driver);
 
         Action newAction = builder.moveToElement(canvas, 170, 160)
@@ -57,8 +59,7 @@ public class w3schoolsTests extends WebDriverTestBase {
                                 .build();
         newAction.perform();
 
-        //TODO try with selenide
-        water.click();
+                water.click();
         Action drugWater = builder.moveToElement(water)
                                 .clickAndHold()
                                 .moveToElement(canvas, 200, 200)

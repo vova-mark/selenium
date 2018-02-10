@@ -1,6 +1,5 @@
-package com.google;
+package selenide.com.google;
 
-import com.codeborne.selenide.SelenideElement;
 import org.testng.annotations.Test;
 import selenide.core.SelenideTestBase;
 import selenide.pages.com.google.GoogleSearchPageSelenide;

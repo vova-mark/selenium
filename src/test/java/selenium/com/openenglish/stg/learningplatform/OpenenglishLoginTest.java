@@ -1,4 +1,4 @@
-package com.openenglish.stg.learningplatform;
+package selenium.com.openenglish.stg.learningplatform;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;

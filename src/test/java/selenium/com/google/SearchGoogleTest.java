@@ -1,4 +1,4 @@
-package com.google;
+package selenium.com.google;
 
 import org.testng.annotations.Listeners;
 import selenium.core.WebDriverTestBase;
