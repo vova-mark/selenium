@@ -1,16 +1,16 @@
 package selenium.core;
 
-import org.apache.commons.io.FileUtils;
+import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-import selenium.util.PropertiesCache;
 
 import java.io.File;
-import java.io.IOException;
+
+import static com.google.common.io.Files.toByteArray;
 
 public class TestListener implements ITestListener {
     private WebDriver driver;
@@ -28,22 +28,15 @@ public class TestListener implements ITestListener {
     @Override
     public void onTestFailure(ITestResult iTestResult) {
         driver = ((WebDriverTestBase) iTestResult.getInstance()).driver;
-
-        File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-
-        try {
-
-            FileUtils.copyFile(scrFile,
-
-                    new File(PropertiesCache.getProperty("directory.screens")
-
-                            + iTestResult.getMethod().getMethodName() + ".png"));
-
-        } catch (IOException e) {
-
-            e.printStackTrace();
-
-        }
+        //File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        this.saveImageAttach(iTestResult.getTestName() + "_methodFailure");
+//        try {
+//            FileUtils.copyFile(scrFile,
+//                    new File(PropertiesCache.getProperty("directory.screens")
+//                            + iTestResult.getMethod().getMethodName() + ".png"));
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
     }
 
     @Override
@@ -64,5 +57,16 @@ public class TestListener implements ITestListener {
     @Override
     public void onFinish(ITestContext iTestContext) {
 
+    }
+
+    @Attachment(value = "{0}", type = "image/png")
+    public byte[] saveImageAttach(String attachName){
+        try{
+            File srcFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+            return toByteArray(srcFile);
+        }catch (Exception ex){
+            ex.printStackTrace();
+            return new byte[0];
+        }
     }
 }

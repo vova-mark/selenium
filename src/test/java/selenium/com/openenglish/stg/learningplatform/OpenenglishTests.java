@@ -1,15 +1,22 @@
 package selenium.com.openenglish.stg.learningplatform;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Features;
+import io.qameta.allure.Story;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import selenium.core.WebDriverTestBase;
 import selenium.pages.com.openenglish.stg.learningplatform.OpenenglishLoginPage;
 
+@Feature("OpenenglishTests Feature annotation")
+@Story("Add tickets on task. Allure annotation")
 public class OpenenglishTests extends WebDriverTestBase {
 
     String correctLogin = "shiosaky@gmail.com.oe";
     String correctPassword = "123456";
 
+    @Description("Allure method description annotation. Boy tests...")
     @Test
     public void LoginWithCorrectCredentialsTest() {
         driver.get("https://learningplatform.stg.openenglish.com");

@@ -1,5 +1,6 @@
 package selenium.pages.com.openenglish.stg.learningplatform;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -25,12 +26,14 @@ public class OpenenglishLoginPage extends AbstractBasePage {
         super(driver);
     }
 
+    @Step("Login with {0} username")
     public OpenenglishLoginPage enterLogin(String s) {
         loginTextbox = driver.findElement(loginTextboxLocator);
         loginTextbox.sendKeys(s);
         return this;
     }
 
+    @Step("Enter {0} Password ")
     public OpenenglishLoginPage enterPassword(String s) {
         passwordTextbox = driver.findElement(passwordTextboxLocator);
         passwordTextbox.sendKeys(s);
