@@ -44,6 +44,6 @@ public class  WebDriverTestBase {
     @AfterClass
     public void tearDown() {
         //driver.close(); //current tab
-        //driver.quit(); //close at all
+        driver.quit(); //close at all
     }
 }

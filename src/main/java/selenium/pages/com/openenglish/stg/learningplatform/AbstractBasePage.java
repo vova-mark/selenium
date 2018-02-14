@@ -1,6 +1,7 @@
 package selenium.pages.com.openenglish.stg.learningplatform;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class AbstractBasePage {
 
@@ -11,7 +12,4 @@ public class AbstractBasePage {
         this.driver = driver;
         this.util = new WebDriverUtil(driver);
     }
-
-
-
 }

@@ -39,9 +39,9 @@ public class GmailLoginTest {
         loginButton = driver.findElement(loginButtonLocator);
         loginButton.click();
         loginTextBox = driver.findElement(loginTextBoxLocator);
-        loginTextBox.sendKeys("");
+        loginTextBox.sendKeys("slnmtstaccnt@gmail.com");
         passwordTextbox = driver.findElement(passwordTextBoxLocator);
-        passwordTextbox.sendKeys("");
+        passwordTextbox.sendKeys("pss$slnm");
         submitButton = driver.findElement(submitButtonLocator);
         submitButton.click();
     }

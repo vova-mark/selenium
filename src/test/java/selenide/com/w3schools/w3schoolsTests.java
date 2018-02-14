@@ -34,7 +34,8 @@ public class w3schoolsTests extends SelenideTestBase {
         Alert alert = Selenide.switchTo().alert();
         Assert.assertTrue(alert.getText().equals("Press a button!"));
         alert.accept();
-        Assert.assertTrue($(By.id("id=demo")).getText().contains("OK"));
+        //Selenide.switchTo().frame("iframeResult");
+        Assert.assertTrue($(By.id("demo")).getText().contains("OK"));
     }
 
     @Test

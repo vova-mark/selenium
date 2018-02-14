@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import selenium.util.PropertiesCache;
 
 public class WebDriverUtil {
 
@@ -12,7 +13,7 @@ public class WebDriverUtil {
 
     public WebDriverUtil(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, 10);
+        this.wait = new WebDriverWait(driver, Long.parseLong(PropertiesCache.getProperty("wait.explicit")));
     }
 
     public WebElement waitFor(ExpectedCondition<WebElement> expectedCondition) {
