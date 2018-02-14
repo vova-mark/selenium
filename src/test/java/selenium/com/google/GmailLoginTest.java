@@ -7,10 +7,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import selenium.core.WebDriverTestBase;
 
 import java.util.concurrent.TimeUnit;
 
-public class GmailLoginTest {
+public class GmailLoginTest extends WebDriverTestBase {
 
     private WebDriver driver;
     private WebElement loginButton;
@@ -33,7 +34,7 @@ public class GmailLoginTest {
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
-    @Test
+    //@Test
     public void LoginTest(){
         driver.get("https://www.gmail.com");
         loginButton = driver.findElement(loginButtonLocator);
