@@ -1,13 +1,16 @@
 package selenium.com.google;
 
 import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+import selenium.core.TestListener;
 import selenium.core.WebDriverTestBase;
 import selenium.pages.com.google.GmailLoginPage;
 import selenium.pages.com.google.GmailLoginPageFactoryPattern;
 
 import static selenium.util.PropertiesCache.getProperty;
 
+@Listeners({TestListener.class})
 public class GmailLoginPageObjectTest extends WebDriverTestBase {
 
     @Test

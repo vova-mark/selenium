@@ -10,7 +10,7 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClick
 public class GmailLoginPage extends AbstractPage {
 
     private WebElement loginTextBox;
-    private By loginTextBoxLocator = By.cssSelector("input[name=identifier]");
+    private By loginTextBoxLocator = By.id("identifierId");
 
     private WebElement passwordTextBox;
     private By passwordTextBoxLocator = By.cssSelector("input[name=password]");

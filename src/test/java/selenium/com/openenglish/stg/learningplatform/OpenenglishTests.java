@@ -5,10 +5,13 @@ import io.qameta.allure.Feature;
 import io.qameta.allure.Features;
 import io.qameta.allure.Story;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+import selenium.core.TestListener;
 import selenium.core.WebDriverTestBase;
 import selenium.pages.com.openenglish.stg.learningplatform.OpenenglishLoginPage;
 
+@Listeners({TestListener.class})
 @Feature("OpenenglishTests Feature annotation")
 @Story("Add tickets on task. Allure annotation")
 public class OpenenglishTests extends WebDriverTestBase {

@@ -7,11 +7,13 @@ import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+import selenium.core.TestListener;
 import selenium.core.WebDriverTestBase;
 import selenium.pages.com.w3schools.W3SchoolsSelectPage;
 
-
+@Listeners({TestListener.class})
 public class w3schoolsTests extends WebDriverTestBase {
 
     @Test

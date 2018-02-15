@@ -4,17 +4,16 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import selenium.core.WebDriverTestBase;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.concurrent.TimeUnit;
 
-public class SearchUkrNetTest {
+
+public class SearchUkrNetTest extends WebDriverTestBase{
     private WebDriver driver;
     private By searchStringLocator = By.id("search-input");
     private By searchButtonLocator = By.cssSelector("input[value=Пошук]");
@@ -24,7 +23,8 @@ public class SearchUkrNetTest {
     private WebElement resultLink;
     private String searchData = "Selenium";
 
-    @BeforeClass
+    //закоменчено после наследования базового теста
+    //@BeforeClass
     public void SetUp() {
         WebDriverManager.firefoxdriver().setup();
         driver = new FirefoxDriver();

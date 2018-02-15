@@ -9,7 +9,7 @@ import java.util.List;
 public class GoogleResultPage {
 
     private WebDriver driver;
-    private By linkLocator = By.xpath("//*[@id=\"rso\"]/div[2]/div/div/div/div/h3/a");
+    private By linkLocator = By.xpath("//*[@id=\"rso\"]/div[2]/div/div[1]/div/div/h3/a");
     private WebElement linkField;
     private By linksLocator = By.xpath("//*[@id=\"rso\"]/div/div/div/div/div/h3/a");
     private List<WebElement> resultList;

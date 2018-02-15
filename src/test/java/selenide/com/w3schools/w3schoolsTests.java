@@ -5,12 +5,16 @@ import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import selenide.core.SelenideTestBase;
+import selenium.core.TestListener;
+
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.$;
 
+@Listeners({TestListener.class})
 public class w3schoolsTests extends SelenideTestBase {
 
     @Test

@@ -1,13 +1,16 @@
 package selenide.com.google;
 
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import selenide.core.SelenideTestBase;
 import selenide.pages.com.google.GoogleSearchPageSelenide;
 import selenide.pages.com.google.GoogleSearchResultPageSelenide;
+import selenium.core.TestListener;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.open;
 
+@Listeners({TestListener.class})
 public class SearchGoogleTestSelenideEdition extends SelenideTestBase {
 
     private GoogleSearchPageSelenide searchPage = new GoogleSearchPageSelenide();
