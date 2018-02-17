@@ -29,7 +29,7 @@ public class TestListener implements ITestListener {
     public void onTestFailure(ITestResult iTestResult) {
         driver = ((WebDriverTestBase) iTestResult.getInstance()).driver;
         //File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-        this.saveImageAttach(iTestResult.getTestName() + "_methodFailure");
+        saveImageAttach(iTestResult.getMethod().getQualifiedName());
 //        try {
 //            FileUtils.copyFile(scrFile,
 //                    new File(PropertiesCache.getProperty("directory.screens")
@@ -37,6 +37,10 @@ public class TestListener implements ITestListener {
 //        } catch (IOException e) {
 //            e.printStackTrace();
 //        }
+    }
+    @Attachment(value = "{0}", type = "image/png")
+    public byte[] saveImageAttach(String attachName){
+        return  ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
     }
 
     @Override
@@ -59,14 +63,5 @@ public class TestListener implements ITestListener {
 
     }
 
-    @Attachment(value = "{0}", type = "image/png")
-    public byte[] saveImageAttach(String attachName){
-        try{
-            File srcFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-            return toByteArray(srcFile);
-        }catch (Exception ex){
-            ex.printStackTrace();
-            return new byte[0];
-        }
-    }
+
 }

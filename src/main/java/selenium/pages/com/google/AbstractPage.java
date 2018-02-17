@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Listeners;
 import selenium.util.WebDriverUtil;
 
-@Listeners({selenium.core.TestListener.class})
+
 public class AbstractPage {
 
     protected WebDriver driver;

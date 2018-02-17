@@ -11,10 +11,10 @@ import selenium.core.TestListener;
 import selenium.core.WebDriverTestBase;
 import selenium.pages.com.openenglish.stg.learningplatform.OpenenglishLoginPage;
 
-@Listeners({TestListener.class})
-@Feature("OpenenglishTests Feature annotation")
+
+@Feature("OpenenglishTest Feature annotation")
 @Story("Add tickets on task. Allure annotation")
-public class OpenenglishTests extends WebDriverTestBase {
+public class OpenenglishTest extends WebDriverTestBase {
 
     String correctLogin = "shiosaky@gmail.com.oe";
     String correctPassword = "123456";

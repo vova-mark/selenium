@@ -10,7 +10,7 @@ import selenium.pages.com.google.GmailLoginPageFactoryPattern;
 
 import static selenium.util.PropertiesCache.getProperty;
 
-@Listeners({TestListener.class})
+
 public class GmailLoginPageObjectTest extends WebDriverTestBase {
 
     @Test

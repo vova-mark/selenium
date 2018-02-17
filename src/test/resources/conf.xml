@@ -11,17 +11,22 @@
         <!--<class name="com.google.GoogleSearchTest" />-->
         <!--</classes>-->
         <!--</test>-->
-        <!--<test name="Windows + FireFox Test">
+        <test name="Windows + FireFox Test">
             <classes>
-                <class name="" />
+                <!--<class name="selenium.com.openenglish.stg.learningplatform.OpenenglishTest" />-->
+                <class name="selenium.RozetkaSearchTest"></class>
+                <class name="selenium.com.w3schools.w3schoolsTest"></class>
+                <class name="selenium.com.google.GmailLoginPageObjectTest"></class>
+                <class name="selenium.com.google.GmailLoginTest"></class>
+                <class name="selenium.com.google.SearchGoogleTest"></class>
             </classes>
-        </test>-->
-        <test name ="PackageTest1">
-            <packages>
-                <package name="selenium">
-                    <exclude name=""></exclude>
-                </package>
-            </packages>
         </test>
+        <!--<test name ="PackageTest1">-->
+            <!--<packages>-->
+                <!--<package name="selenium.com">-->
+                    <!--&lt;!&ndash;<exclude name=""></exclude>&ndash;&gt;-->
+                <!--</package>-->
+            <!--</packages>-->
+        <!--</test>-->
     <!--</tests>-->
 </suite>

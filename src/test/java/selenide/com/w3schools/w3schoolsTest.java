@@ -15,7 +15,7 @@ import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.$;
 
 @Listeners({TestListener.class})
-public class w3schoolsTests extends SelenideTestBase {
+public class w3schoolsTest extends SelenideTestBase {
 
     @Test
     public void SelectTest(){

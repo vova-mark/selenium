@@ -11,7 +11,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.open;
 
 @Listeners({TestListener.class})
-public class SearchGoogleTestSelenideEdition extends SelenideTestBase {
+public class SearchGoogleSelenideEditionTest extends SelenideTestBase {
 
     private GoogleSearchPageSelenide searchPage = new GoogleSearchPageSelenide();
     private GoogleSearchResultPageSelenide resultPage = new GoogleSearchResultPageSelenide();

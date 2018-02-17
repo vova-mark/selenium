@@ -14,7 +14,7 @@ import selenium.pages.com.google.GoogleSearchPage;
 
 import java.util.List;
 
-@Listeners({TestListener.class})
+
 public class SearchGoogleTest extends WebDriverTestBase {
 
     private By searchFieldLocator = By.name("q");

@@ -13,8 +13,8 @@ import selenium.core.TestListener;
 import selenium.core.WebDriverTestBase;
 import selenium.pages.com.w3schools.W3SchoolsSelectPage;
 
-@Listeners({TestListener.class})
-public class w3schoolsTests extends WebDriverTestBase {
+
+public class w3schoolsTest extends WebDriverTestBase {
 
     @Test
     public void SelectTest(){

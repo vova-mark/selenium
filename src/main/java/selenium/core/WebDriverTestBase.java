@@ -7,11 +7,13 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import static selenium.util.PropertiesCache.getProperty;
-
+import org.testng.annotations.Listeners;
 
 import java.util.concurrent.TimeUnit;
 
+import static selenium.util.PropertiesCache.getProperty;
+
+@Listeners({TestListener.class})
 public class  WebDriverTestBase {
 
     protected WebDriver driver;

@@ -32,7 +32,7 @@ public class SearchUkrNetTest extends WebDriverTestBase{
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
-    @Test
+    //@Test
     public void searchUkrNetTestMethod() {
         driver.get("https://www.ukr.net/");
         searchString = driver.findElement(searchStringLocator);

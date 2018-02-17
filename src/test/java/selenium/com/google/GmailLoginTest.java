@@ -13,7 +13,7 @@ import selenium.core.WebDriverTestBase;
 
 import java.util.concurrent.TimeUnit;
 
-@Listeners({TestListener.class})
+
 public class GmailLoginTest extends WebDriverTestBase {
 
     private WebDriver driver;
