@@ -1,23 +1,24 @@
-
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="Parallel Tests" verbose="1" thread-count="4" parallel="tests">
-    <!--<tests>-->
-        <!--<test name="Windows + Chrome Test">-->
-        <!--<parameters>-->
-        <!--<parameter name="platform" value="WIN8_1" />-->
-        <!--<parameter name="remoteBrowser" value="chrome"/>-->
-        <!--</parameters>-->
-        <!--<classes>-->
-        <!--<class name="com.google.GoogleSearchTest" />-->
-        <!--</classes>-->
-        <!--</test>-->
-        <test name="Windows + FireFox Test">
+    <tests>
+        <test name="Windows10 + Chrome Test">
+            <parameters>
+                <parameter name="platform" value="WIN10" />
+                <parameter name="remoteBrowser" value="chrome"/>
+            </parameters>
+        <classes>
+            <class name="selenium.com.google.GmailLoginTest" />
+        </classes>
+        </test>
+        <test name="Windows10 + FireFox Test">
+            <parameters>
+                <parameter name="platform" value="WIN10" />
+                <parameter name="remoteBrowser" value="firefox"/>
+            </parameters>
             <classes>
                 <!--<class name="selenium.com.openenglish.stg.learningplatform.OpenenglishTest" />-->
-                <class name="selenium.RozetkaSearchTest"></class>
-                <class name="selenium.com.w3schools.w3schoolsTest"></class>
-                <class name="selenium.com.google.GmailLoginPageObjectTest"></class>
-                <class name="selenium.com.google.GmailLoginTest"></class>
+                <!--<class name="selenium.RozetkaSearchTest"></class>-->
+                <!--<class name="selenium.com.w3schools.w3schoolsTest"></class>-->
+                <!--<class name="selenium.com.google.GmailLoginPageObjectTest"></class>-->
                 <class name="selenium.com.google.SearchGoogleTest"></class>
             </classes>
         </test>
@@ -28,5 +29,5 @@
                 <!--</package>-->
             <!--</packages>-->
         <!--</test>-->
-    <!--</tests>-->
+    </tests>
 </suite>

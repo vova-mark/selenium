@@ -1,5 +1,6 @@
 package selenium.pages.com.google;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -26,6 +27,7 @@ public class GmailLoginPage extends AbstractPage {
         super(driver);
     }
 
+    @Step("Login step with {0} name and {1} pwd")
     public void Login(String login, String passsword) {
 
         loginTextBox = driver.findElement(loginTextBoxLocator);

@@ -1,16 +1,17 @@
 package selenium.com.google;
 
+import com.sun.org.glassfish.gmbal.Description;
+import io.qameta.allure.Feature;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import selenium.core.TestListener;
 import selenium.core.WebDriverTestBase;
 import selenium.pages.com.google.GmailLoginPage;
 import selenium.pages.com.google.GmailLoginPageFactoryPattern;
 
 import static selenium.util.PropertiesCache.getProperty;
 
-
+@Feature("Gmail login form")
+@Description("Description of signing in google.")
 public class GmailLoginPageObjectTest extends WebDriverTestBase {
 
     @Test
@@ -19,6 +20,7 @@ public class GmailLoginPageObjectTest extends WebDriverTestBase {
         GmailLoginPage gmailLoginPage = new GmailLoginPage(driver);
         gmailLoginPage.Login("slnmtstaccnt@gmail.com", "pss$slnm");
     }
+
 
     @Test
     public void gmailLoginFactoryUseTest() {

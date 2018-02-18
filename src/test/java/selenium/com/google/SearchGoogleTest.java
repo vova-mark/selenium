@@ -1,20 +1,17 @@
 package selenium.com.google;
 
+import io.qameta.allure.Description;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import selenium.core.TestListener;
 import selenium.core.WebDriverTestBase;
 import selenium.pages.com.google.GoogleResultPage;
 import selenium.pages.com.google.GoogleSearchPage;
 
 import java.util.List;
 
-
+//TODO annotation add
 public class SearchGoogleTest extends WebDriverTestBase {
 
     private By searchFieldLocator = By.name("q");
@@ -26,6 +23,7 @@ public class SearchGoogleTest extends WebDriverTestBase {
     private WebElement searchButton;
     private String searchData = "selenium";
 
+    @Description("Desription annotation for method")
     @Test
     public void searchGoogleTest() {
         driver.get("https://www.google.com.ua/");

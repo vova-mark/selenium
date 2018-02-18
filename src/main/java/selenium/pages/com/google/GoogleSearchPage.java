@@ -1,5 +1,6 @@
 package selenium.pages.com.google;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -17,6 +18,7 @@ public class GoogleSearchPage {
         this.driver = driver;
     }
 
+    @Step("Searching for {0} ")
     public void searchFor(String searchData){
         searchField = driver.findElement(searchFieldLocator);
         searchField.sendKeys(searchData);
