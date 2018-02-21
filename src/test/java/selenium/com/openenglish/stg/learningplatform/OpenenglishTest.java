@@ -7,6 +7,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import selenium.core.WebDriverTestBase;
+import selenium.pages.com.openenglish.stg.learningplatform.OpenEnglishMainPage;
 import selenium.pages.com.openenglish.stg.learningplatform.OpenenglishLoginPage;
 
 
@@ -23,11 +24,16 @@ public class OpenenglishTest extends WebDriverTestBase {
         driver.get("https://learningplatform.stg.openenglish.com");
         OpenenglishLoginPage loginPage = new OpenenglishLoginPage(driver);
         //loginPage.closeBunnerContinue();
+        OpenEnglishMainPage page = new OpenEnglishMainPage(driver);
         Assert.assertTrue(loginPage.enterLogin(correctLogin)
                                     .enterPassword(correctPassword)
                                     .pressLogInButton()
                                     .getDropdownUsername()
                                     .contains("Daniel Shiosaky"));
+        page.clickAva();
+        page.logOut();
+
+
     }
 
     @Test

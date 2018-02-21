@@ -35,4 +35,10 @@ public class OpenEnglishMainPage extends AbstractBasePage {
         logOutButton.click();
         return new OpenenglishLoginPage(driver);
     }
+
+    public OpenEnglishMainPage clickAva(){
+        avatarImage = driver.findElement(avatarImageLocator);
+        avatarImage.click();
+        return this;
+    }
 }
