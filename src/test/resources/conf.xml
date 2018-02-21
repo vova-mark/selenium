@@ -6,7 +6,7 @@
                 <parameter name="remoteBrowser" value="chrome"/>
             </parameters>
         <classes>
-            <class name="selenium.com.google.GmailLoginTest" />
+            <class name="selenium.com.google.GmailLoginPageObjectTest" />
         </classes>
         </test>
         <test name="Windows10 + FireFox Test">
@@ -19,7 +19,7 @@
                 <!--<class name="selenium.RozetkaSearchTest"></class>-->
                 <!--<class name="selenium.com.w3schools.w3schoolsTest"></class>-->
                 <!--<class name="selenium.com.google.GmailLoginPageObjectTest"></class>-->
-                <class name="selenium.com.google.SearchGoogleTest"></class>
+                <class name="selenium.com.openenglish.stg.learningplatform.OpenenglishTest"></class>
             </classes>
         </test>
         <!--<test name ="PackageTest1">-->

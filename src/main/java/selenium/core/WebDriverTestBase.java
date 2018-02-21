@@ -1,14 +1,17 @@
 package selenium.core;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Listeners;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.annotations.*;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 import static selenium.util.PropertiesCache.getProperty;
@@ -19,8 +22,19 @@ public class  WebDriverTestBase {
     protected WebDriver driver;
     protected BrowsersEnum browser = BrowsersEnum.valueOf(System.getProperty("browser", getProperty("defaultbrowser")));
 
+    private DesiredCapabilities setDesiredCapabilities(String platform, String remoteBrowser){
+        DesiredCapabilities caps = new DesiredCapabilities();
+        if (platform.equalsIgnoreCase(Platform.WIN10.name())) {
+            caps.setPlatform(Platform.WIN10);
+            caps.setBrowserName(remoteBrowser);
+        }
+
+        return caps;
+    }
+
+    @Parameters({"platform", "remoteBrowser"})
     @BeforeClass
-    public void SetUp() {
+    public void SetUp(@Optional String platform, @Optional String remoteBrowser) throws MalformedURLException {
         switch (browser) {
             case CHROME:
                 //WebDriverManager.chromedriver().version("2.35").setup(); //with specified version of driver
@@ -35,6 +49,10 @@ public class  WebDriverTestBase {
             case EDGE:
                 WebDriverManager.edgedriver().setup();
                 driver = new EdgeDriver();
+                break;
+            case REMOTE:
+                DesiredCapabilities caps = setDesiredCapabilities(platform, remoteBrowser);
+                driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), caps);
                 break;
         }
         driver.manage().window().maximize();

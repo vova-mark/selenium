@@ -2,12 +2,10 @@ package selenium.com.openenglish.stg.learningplatform;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
-import io.qameta.allure.Features;
 import io.qameta.allure.Story;
+import org.openqa.selenium.JavascriptExecutor;
 import org.testng.Assert;
-import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import selenium.core.TestListener;
 import selenium.core.WebDriverTestBase;
 import selenium.pages.com.openenglish.stg.learningplatform.OpenenglishLoginPage;
 
@@ -20,7 +18,7 @@ public class OpenenglishTest extends WebDriverTestBase {
     String correctPassword = "123456";
 
     @Description("Allure method description annotation. Boy tests...")
-    @Test
+    @Test(testName = "Login with correct credentials")
     public void LoginWithCorrectCredentialsTest() {
         driver.get("https://learningplatform.stg.openenglish.com");
         OpenenglishLoginPage loginPage = new OpenenglishLoginPage(driver);
@@ -33,8 +31,8 @@ public class OpenenglishTest extends WebDriverTestBase {
     }
 
     @Test
-    public void Check_appearing_and_disappearing_the_Introducción_video(){
-        driver.get(" https://learningplatform.stg.openenglish.com");
+    public void Remember_login_information (){
+        driver.get("https://learningplatform.stg.openenglish.com");
         OpenenglishLoginPage loginPage = new OpenenglishLoginPage(driver);
 
         Assert.assertTrue(!loginPage.getLoginButton()
@@ -47,8 +45,19 @@ public class OpenenglishTest extends WebDriverTestBase {
                                     .enterPassword(correctPassword)
                                     .getLoginButton()
                                     .isEnabled());
+        loginPage.getLoginRememberCheckbox().click();
 
-        loginPage.pressLogInButton();
+        Assert.assertTrue(loginPage
+                .getLoginRememberCheckbox()
+                .isEnabled());
+
+
+        loginPage.pressLogInButton().logOut();
+
+        String cs = driver.manage().getCookieNamed("oeusername").getValue();
+
+        Assert.assertEquals((String)((JavascriptExecutor)driver)
+                .executeScript("return document.getElementById(\"login-email\").value"), correctLogin);
 
     }
 

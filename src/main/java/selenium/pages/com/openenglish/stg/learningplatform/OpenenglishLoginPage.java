@@ -4,21 +4,32 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class OpenenglishLoginPage extends AbstractBasePage {
 
     private By loginTextboxLocator = By.id("login-email");
-    private WebElement loginTextbox;
+    public WebElement getLoginTextbox() {
+        return driver.findElement(loginTextboxLocator);
+    }
 
     private By passwordTextboxLocator = By.id("login-password");
-    private WebElement passwordTextbox;
+    public WebElement getPasswordTextbox(){
+        return driver.findElement(passwordTextboxLocator);
+    }
 
     private By loginButtonLocator = By.id("login-submit");
-    private WebElement loginButton;
+    public WebElement getLoginButton(){
+        return driver.findElement(loginButtonLocator);
+    }
 
     private By bunnerContinueButtonLocator = By.id("banner-continue-btn");
     private WebElement bunnerContinueButton;
+
+
+    private By loginRememberCheckboxLocator = By.id("login-remember");
+    public WebElement getLoginRememberCheckbox() {
+        return driver.findElement(loginRememberCheckboxLocator);
+    }
 
 
 
@@ -28,25 +39,18 @@ public class OpenenglishLoginPage extends AbstractBasePage {
 
     @Step("Login with {0} username")
     public OpenenglishLoginPage enterLogin(String s) {
-        loginTextbox = driver.findElement(loginTextboxLocator);
-        loginTextbox.sendKeys(s);
+        getLoginTextbox().sendKeys(s);
         return this;
     }
 
     @Step("Enter {0} Password ")
     public OpenenglishLoginPage enterPassword(String s) {
-        passwordTextbox = driver.findElement(passwordTextboxLocator);
-        passwordTextbox.sendKeys(s);
+        getPasswordTextbox().sendKeys(s);
         return this;
     }
 
-    public WebElement getPasswordTextbox() {
-        return driver.findElement(passwordTextboxLocator);
-    }
-
     public OpenEnglishMainPage pressLogInButton() {
-        loginButton = driver.findElement(loginButtonLocator);
-        loginButton.click();
+        getLoginButton().click();
         return new OpenEnglishMainPage(driver);
 
     }
@@ -56,7 +60,9 @@ public class OpenenglishLoginPage extends AbstractBasePage {
         bunnerContinueButton.click();
     }
 
-    public WebElement getLoginButton() {
-        return driver.findElement(loginButtonLocator);
+    public OpenenglishLoginPage setRememberCheckbox(){
+        getLoginRememberCheckbox().click();
+        return this;
     }
+
 }

@@ -1,6 +1,7 @@
 package selenium.com.google;
 
-import com.sun.org.glassfish.gmbal.Description;
+
+import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
@@ -11,10 +12,11 @@ import selenium.pages.com.google.GmailLoginPageFactoryPattern;
 import static selenium.util.PropertiesCache.getProperty;
 
 @Feature("Gmail login form")
-@Description("Description of signing in google.")
+
 public class GmailLoginPageObjectTest extends WebDriverTestBase {
 
-    @Test
+    //@Description("Description of signing in google.")
+    //@Test
     public void gmailLoginTest() {
         driver.get("https://accounts.google.com/signin/v2/identifier?continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&service=mail&sacu=1&rip=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin");
         GmailLoginPage gmailLoginPage = new GmailLoginPage(driver);
