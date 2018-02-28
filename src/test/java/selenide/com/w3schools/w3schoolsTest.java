@@ -10,9 +10,9 @@ import org.testng.annotations.Test;
 import selenide.core.SelenideTestBase;
 import selenium.core.TestListener;
 
-import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
-import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 @Listeners({TestListener.class})
 public class w3schoolsTest extends SelenideTestBase {

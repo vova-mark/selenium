@@ -1,7 +1,6 @@
 package selenium.com.google;
 
 
-import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;

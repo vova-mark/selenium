@@ -8,10 +8,6 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-import java.io.File;
-
-import static com.google.common.io.Files.toByteArray;
-
 public class TestListener implements ITestListener {
     private WebDriver driver;
 
