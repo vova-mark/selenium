@@ -19,6 +19,7 @@
         <allure-testng.version>2.0-BETA21</allure-testng.version>
         <maven.surefire.plugin>2.20.1</maven.surefire.plugin>
         <aspectj.version>1.8.13</aspectj.version>
+        <io.cucumber.version>2.3.1</io.cucumber.version>
     </properties>
 
     <dependencies>
@@ -59,8 +60,22 @@
             <artifactId>testng</artifactId>
             <version>RELEASE</version>
         </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${io.cucumber.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>${io.cucumber.version}</version>
+        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>io.cucumber</groupId>-->
+            <!--<artifactId>cucumber-jvm</artifactId>-->
+            <!--<version>${io.cucumber.version}</version>-->
+        <!--</dependency>-->
     </dependencies>
-
     <build>
         <plugins>
             <plugin>
