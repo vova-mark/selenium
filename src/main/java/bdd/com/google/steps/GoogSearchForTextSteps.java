@@ -1,7 +1,8 @@
 package bdd.com.google.steps;
 
+
 import bdd.com.google.pages.GoogleSearchPage;
-import cucumber.api.java.en.And;
+import cucumber.api.java.After;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -27,11 +28,12 @@ public class GoogSearchForTextSteps {
         driver.get(SEARCH_PAGE);
     }
 
-    @When("I type \"([^\"]*)\" to seach")
+    @When("I type \"([^\"]*)\" to search")
     public void typeSearchText(String searchString){
         googleSearchPage = new GoogleSearchPage(driver);
         googleSearchPage.searchForText(searchString);
     }
+
 
     @Then("I saw in result page searching string \"([^\"]*)\"")
     public void checkForSearchingTextInResult(String stringToCheck){
@@ -40,6 +42,11 @@ public class GoogSearchForTextSteps {
                 .getText()
                 .toLowerCase()
                 .contains(stringToCheck));
+
+    }
+
+    @After
+    public void finishTest(){
         driver.close();
     }
 }
