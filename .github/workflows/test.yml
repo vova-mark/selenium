@@ -17,6 +17,6 @@ jobs:
         run: |
           echo ${{ fromJSON(inputs.mock_services_list)}}
           echo ${{ inputs.mock_services_list }}
-          for str in "${${{ inputs.mock_services_list }}[@]}"; do
+          for str in "${{ fromJSON(inputs.mock_services_list)}}"; do
             echo "$str"
           done
