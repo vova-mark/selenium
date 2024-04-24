@@ -1,8 +1,14 @@
 name: TEST
 
 on:
-  workflow_dispatch:
   workflow_call:
+    inputs:
+      mock_services_list:
+        type: string
+        default: '["sv1", "sv2", "sv3", "sv4"]'
+        required: true
+        description: "Json string with list of mock services to check"
+  workflow_dispatch:
     inputs:
       mock_services_list:
         type: string
