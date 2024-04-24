@@ -5,7 +5,7 @@ on:
     inputs:
       mock_services_list:
         type: string
-        default: '[]'
+        default: '["8.8.8.8", "8.8.8.8", "8.8.8.8"]'
         required: true
         description: "Json string with list of mock services to check"
 
@@ -15,11 +15,24 @@ jobs:
     steps:
       - name: TEST STEP
         run: |
+          URL_TEMPLATE="https://_service_name_-ci.dev.aks.west.us.mckesson.com/mock/__admin/mappings"
+          
           while IFS="," read -r element; do
             final=$(echo "$element" | sed -e 's/\\r\|\\n//g')
             mock_service_names+=("$final")
           done < <( echo '${{ inputs.mock_services_list }}' | jq -r '.[]')  
-  
+          
           for i in "${mock_service_names[@]}"; do
-            echo $i
+            url=${URL_TEMPLATE/_service_name_/$i}
+            response_code=$(curl -s -o /dev/null -w "%{http_code}" "$url")
+            if [ "$response_code" != "200" ]; then
+              results+=("$i")
+            fi
+            echo $url $response_code
           done
+  
+          if [ "${#results[@]}" -gt "0" ]; then
+            echo ERROR: there are mocks with response code != 200
+            printf '%s\n' "${results[@]}"
+            exit 1;
+          fi
