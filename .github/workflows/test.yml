@@ -5,7 +5,7 @@ on:
     inputs:
       mock_services_list:
         type: string
-        default: '["8.8.8.8", "8.8.8.8", "8.8.8.8"]'
+        default: '[]'
         required: true
         description: "Json string with list of mock services to check"
 
