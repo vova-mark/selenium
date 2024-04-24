@@ -16,10 +16,10 @@ jobs:
       - name: TEST STEP
         run: |
           while IFS="," read -r element; do
-          final=$(echo "$element" | sed -e 's/\\r\|\\n//g')
-          mock_service_names+=("$final")
-          done < <( echo "${{ inputs.mock_services_list }}" | jq -r '.[]')  
+            final=$(echo "$element" | sed -e 's/\\r\|\\n//g')
+            mock_service_names+=("$final")
+          done < <( echo ${{ inputs.mock_services_list }} | jq -r '.[]')  
   
           for i in "${mock_service_names[@]}"; do
-          echo $i
+            echo $i
           done
