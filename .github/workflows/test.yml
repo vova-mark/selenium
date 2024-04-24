@@ -14,10 +14,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: TEST STEP
-        with:
-          services: ${{ fromJSON(inputs.mock_services_list)}}
+        
         run: |
-          for str in ${services[@]}; do
+          for str in ${${{ fromJSON(inputs.mock_services_list)}}[@]}; do
             echo $str
           done
-          
