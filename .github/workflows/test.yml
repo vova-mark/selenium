@@ -5,7 +5,7 @@ on:
     inputs:
       mock_services_list:
         type: string
-        default: '["sv1", "sv2", "sv3", "sv4"]'
+        default: '["8.8.8.8", "8.8.8.8", "8.8.8.8"]'
         required: true
         description: "Json string with list of mock services to check"
 
@@ -14,8 +14,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: TEST STEP
-        
         run: |
-          for str in ${${{ fromJSON(inputs.mock_services_list)}}[@]}; do
+          echo ${{ fromJSON(inputs.mock_services_list)}}
+          echo ${{ inputs.mock_services_list }}
+          for str in ${${{ fromJSON(inputs.mock_services_list )}}[@]}; do
             echo $str
           done
